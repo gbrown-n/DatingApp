@@ -4,6 +4,7 @@ import { NgFor } from '@angular/common';
 import { NavComponent } from "./nav/nav.component";
 import { AccountService } from './_services/account.service';
 import { HomeComponent } from "./home/home.component";
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-root',
@@ -13,6 +14,8 @@ import { HomeComponent } from "./home/home.component";
 })
 export class AppComponent implements OnInit {
   private accountService = inject(AccountService);
+  //private toastr = inject(ToastrService); doesn't work
+  
 
   ngOnInit(): void {
     this.setCurrentUser();
