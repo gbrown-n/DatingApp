@@ -17,15 +17,14 @@ export class NavComponent {
   model: any = {};
   accountService = inject(AccountService);
   private router = inject(Router);
-  private toastr = inject(ToastrService); //doesn't work
-
+  private toastr = inject(ToastrService);
 
   login() {
     this.accountService.login(this.model).subscribe({
       next: response => {
         void this.router.navigateByUrl('/members');
       }, 
-      //error: error => this.toastr.error(error.error)
+      error: error => this.toastr.error(error.error)
     });
   }
 
