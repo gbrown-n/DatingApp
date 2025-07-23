@@ -18,6 +18,9 @@ public class AutoMapperProfiles : Profile
         CreateMap<Photo, PhotoDto>();
 
         CreateMap<MemberUpdateDTO, AppUser>();
+        CreateMap<RegisterDTO, AppUser>();
+        CreateMap<String, DateOnly>()
+            .ConvertUsing(date => DateOnly.Parse(date));
     }
 
 }

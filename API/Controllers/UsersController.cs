@@ -116,6 +116,11 @@ public class UserController(IUserRepository userRepository, IMapper mapper,
             if (result.Error != null) return BadRequest(result.Error.Message);
         }
 
+        if (user.Photos.Count == 0)
+        {
+            photo.IsMain = true; 
+        }
+
         user.Photos.Remove(photo);
 
         if (await userRepository.SaveAllAsync()) return Ok();
